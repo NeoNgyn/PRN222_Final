@@ -24,9 +24,9 @@ namespace GenderHealcareSystem.DTO
 
         public string? Address { get; set; }
 
-        public DateOnly? Dob { get; set; }
+        public string? Birthday { get; set; }
 
-        public bool IsDeleted { get; set; }
+        public bool IsActive { get; set; }
 
         public Role Role { get; set; }
     }

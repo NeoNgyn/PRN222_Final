@@ -35,7 +35,7 @@ namespace GenderHealcareSystem.Controllers
         }
 
         //GET SERVICE BY ID
-        [HttpGet("{id:guid}")]
+        [HttpGet("{id:guid}/{roleId:guid}")]
         public async Task<IActionResult> GetById([FromRoute] Guid id, [FromRoute] Guid roleId)
         {
             //Get user from database - domain model
@@ -53,7 +53,7 @@ namespace GenderHealcareSystem.Controllers
         //CREATE NEW StaffConsultant
         [HttpPost]
         [ValidateModel]
-        public async Task<IActionResult> Create([FromBody] AddServiceRequest dto)
+        public async Task<IActionResult> Create([FromBody] AddStaffConsultantRequest dto)
         {
             //Convert Dto to domain model
             var userDomain = _mapper.Map<User>(dto);
@@ -68,7 +68,7 @@ namespace GenderHealcareSystem.Controllers
         }
 
         //UPDATE EXIST StaffConsultant
-        [HttpPut("{id:guid}, {roleId:guid}")]
+        [HttpPut("{id:guid}/{roleId:guid}")]
         [ValidateModel]
         public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] UpdateStaffConsultantRequest dto, [FromRoute] Guid roleId)
         {
@@ -88,7 +88,7 @@ namespace GenderHealcareSystem.Controllers
         }
 
         //DELETE EXIST StaffConsultant
-        [HttpDelete("{id:guid}, {roleId:guid}")]
+        [HttpDelete("{id:guid}/{roleId:guid}")]
         public async Task<IActionResult> Delete([FromRoute] Guid id, [FromRoute] Guid roleId)
         {
             // Delete from DB by Id
@@ -101,7 +101,7 @@ namespace GenderHealcareSystem.Controllers
         }
 
         // REVIVE EXIST StaffConsultant
-        [HttpPut("{id:guid}, {roleId:guid}")]
+        [HttpPut("{id:guid}/{roleId:guid}/revive")]
         public async Task<IActionResult> Revive([FromRoute] Guid id, [FromRoute] Guid roleId)
         {
             // Revive from DB by Id

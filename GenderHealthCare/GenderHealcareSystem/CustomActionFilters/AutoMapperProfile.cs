@@ -17,11 +17,12 @@ namespace GenderHealcareSystem.CustomActionFilters
             .ReverseMap();
             CreateMap<Blog, AddBlogRequest>().ReverseMap();
             CreateMap<Blog, UpdateBlogRequest>().ReverseMap();
-            CreateMap<UpdateUserRequest, User>().ForMember(dest => dest.Dob,
+            CreateMap<UpdateUserRequest, User>().ForMember(dest => dest.Birthday,
                 opt => opt.MapFrom(src => src.DateOfBirth));
 
             CreateMap<User, StaffConsultantDto>().ReverseMap();
-            CreateMap<User, AddStaffConsultantRequest>().ReverseMap();
+            CreateMap<AddStaffConsultantRequest, User>()
+                .ForMember(dest => dest.RoleId, opt => opt.MapFrom(src => src.RoleId));
             CreateMap<User, UpdateStaffConsultantRequest>().ReverseMap();
         }
     }
