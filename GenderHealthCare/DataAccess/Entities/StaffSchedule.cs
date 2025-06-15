@@ -24,6 +24,10 @@ namespace DataAccess.Entities
         [MaxLength(10)]
         public string Status { get; set; }
 
+        public DateTime? CreatedAt { get; set; }
+
+        public DateTime? UpdatedAt { get; set; }
+
         public User User { get; set; }
 
         public ICollection<Appointment> Appointments { get; set; }

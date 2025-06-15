@@ -6,10 +6,6 @@ namespace GenderHealcareSystem.DTO.Request
 {
     public class AddStaffConsultantRequest
     {
-        public Guid UserId { get; set; }
-
-        public Guid? RoleId { get; set; }
-
         [MaxLength(20)]
         public string Username { get; set; }
 
@@ -29,8 +25,7 @@ namespace GenderHealcareSystem.DTO.Request
 
         public DateOnly? Dob { get; set; }
 
-        public bool IsDeleted { get; set; }
-
-        public Role Role { get; set; }
+        [Required]
+        public Guid RoleId { get; set; }
     }
 }

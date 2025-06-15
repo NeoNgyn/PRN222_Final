@@ -106,7 +106,7 @@ namespace GenderHealcareSystem
             // Inject Services
             builder.Services.AddScoped<IServiceService, ServiceService>();
             builder.Services.AddScoped<IBlogService, BlogService>();
-            builder.Services.AddScoped<IStaffConsultantService, IStaffConsultantService>();
+            builder.Services.AddScoped<IStaffConsultantService, StaffConsultantService>();
 
             //Add AutoMapper
             builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
@@ -122,6 +122,7 @@ namespace GenderHealcareSystem
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
+                app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }

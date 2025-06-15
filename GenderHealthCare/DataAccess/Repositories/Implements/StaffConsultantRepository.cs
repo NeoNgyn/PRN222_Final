@@ -26,7 +26,7 @@ namespace DataAccess.Repositories.Implements
             if (existedUser == null)
                 return false;
 
-            existedUser.IsDeleted = true;
+            existedUser.IsActive = false;
             _context.Users.Update(existedUser);
             await _context.SaveChangesAsync();
 
@@ -38,12 +38,12 @@ namespace DataAccess.Repositories.Implements
         public async Task<bool> ReviveAsync(Guid id, Guid roleId)
         {
             var deletedUser = await _context.Users
-                .FirstOrDefaultAsync(u => u.UserId == id && u.IsDeleted && u.RoleId.Equals(roleId));
+                .FirstOrDefaultAsync(u => u.UserId == id && !u.IsActive && u.RoleId.Equals(roleId));
 
             if (deletedUser == null)
                 return false;
 
-            deletedUser.IsDeleted = false;
+            deletedUser.IsActive = true;
             _context.Users.Update(deletedUser);
             await _context.SaveChangesAsync();
 
@@ -55,7 +55,7 @@ namespace DataAccess.Repositories.Implements
         public async Task<User?> GetByIdAsync(Guid id, Guid roleId)
         {        
                 return await _context.Users
-                    .FirstOrDefaultAsync(u => u.UserId == id && !u.IsDeleted
+                    .FirstOrDefaultAsync(u => u.UserId == id && u.IsActive
                     && (u.RoleId.Equals(roleId)));
         }
 
@@ -74,7 +74,7 @@ namespace DataAccess.Repositories.Implements
                 existedUser.Email = dto.Email;
                 existedUser.PhoneNumber = dto.PhoneNumber;
                 existedUser.Address = dto.Address;
-                existedUser.Dob = dto.Dob;
+                existedUser.Birthday = dto.Birthday;
                 existedUser.Role = dto.Role;
 
                 _context.Users.Update(existedUser);
@@ -90,7 +90,7 @@ namespace DataAccess.Repositories.Implements
         public async Task<IEnumerable<User>> GetAllAsync(Guid roleId)
         {
             return await _context.Users
-                .Where(u => !u.IsDeleted && u.RoleId.Equals(roleId))
+                .Where(u => u.IsActive && u.RoleId.Equals(roleId))
                 .ToListAsync();
         }
 
