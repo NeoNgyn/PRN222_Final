@@ -22,15 +22,15 @@ namespace GenderHealcareSystem.Controllers
         }
 
         //UPDATE EXIST StaffConsultant
-        [HttpPut("{id:guid}")]
+        [HttpPut("{id:guid}, {roleId:guid}")]
         [ValidateModel]
-        public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] UpdateStaffConsultantRequest dto)
+        public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] UpdateStaffConsultantRequest dto, [FromRoute] Guid roleId)
         {
             //Convert Dto to domain model
             var StaffConsultantDomain = _mapper.Map<User>(dto);
 
             //Update user in DB
-            StaffConsultantDomain = await _service.UpdateAsync(id, StaffConsultantDomain);
+            StaffConsultantDomain = await _service.UpdateAsync(id, StaffConsultantDomain, roleId);
 
             if (StaffConsultantDomain == null)
                 return NotFound();
@@ -42,16 +42,29 @@ namespace GenderHealcareSystem.Controllers
         }
 
         //DELETE EXIST StaffConsultant
-        [HttpDelete("{id:guid}")]
-        public async Task<IActionResult> Delete([FromRoute] Guid id)
+        [HttpDelete("{id:guid}, {roleId:guid}")]
+        public async Task<IActionResult> Delete([FromRoute] Guid id, [FromRoute] Guid roleId)
         {
             // Delete from DB by Id
-            var isDeleted = await _service.DeleteAsync(id);
+            var isDeleted = await _service.DeleteAsync(id, roleId);
 
             if (!isDeleted)
                 return NotFound();
 
             return NoContent();
+        }
+
+        // REVIVE EXIST StaffConsultant
+        [HttpPut("{id:guid}, {roleId:guid}")]
+        public async Task<IActionResult> Revive([FromRoute] Guid id, [FromRoute] Guid roleId)
+        {
+            // Revive from DB by Id
+            var isRevived = await _service.ReviveAsync(id, roleId);
+
+            if (!isRevived)
+                return NotFound();
+
+            return Ok();
         }
     }
 }

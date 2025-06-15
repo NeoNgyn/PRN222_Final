@@ -19,29 +19,49 @@ namespace DataAccess.Repositories.Implements
             _context = context;
         }
 
-        public async Task<bool> DeleteAsync(Guid id)
+        public async Task<bool> DeleteAsync(Guid id, Guid roleId)
         {
-            var existedUser = await GetByIdAsync(id);
+            var existedUser = await GetByIdAsync(id, roleId);
 
-            if (existedUser == null)       
+            if (existedUser == null)
                 return false;
 
             existedUser.IsDeleted = true;
             _context.Users.Update(existedUser);
             await _context.SaveChangesAsync();
 
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.UserId == id);
+
             return true;
         }
 
-        public async Task<User?> GetByIdAsync(Guid id)
+        public async Task<bool> ReviveAsync(Guid id, Guid roleId)
         {
-            return await _context.Users
-                .FirstOrDefaultAsync(u => u.UserId == id && !u.IsDeleted);
+            var deletedUser = await _context.Users
+                .FirstOrDefaultAsync(u => u.UserId == id && u.IsDeleted && u.RoleId.Equals(roleId));
+
+            if (deletedUser == null)
+                return false;
+
+            deletedUser.IsDeleted = false;
+            _context.Users.Update(deletedUser);
+            await _context.SaveChangesAsync();
+
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.UserId == id);
+
+            return true;
         }
 
-        public async Task<User?> UpdateAsync(Guid id, User dto)
+        public async Task<User?> GetByIdAsync(Guid id, Guid roleId)
+        {        
+                return await _context.Users
+                    .FirstOrDefaultAsync(u => u.UserId == id && !u.IsDeleted
+                    && (u.RoleId.Equals(roleId)));
+        }
+
+        public async Task<User?> UpdateAsync(Guid id, User dto, Guid roleId)
         {
-            var existedUser = await _context.Users.FindAsync(id);
+            var existedUser = await GetByIdAsync(id, roleId);
 
             if(existedUser == null)
                 return null;

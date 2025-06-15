@@ -9,10 +9,11 @@ namespace BusinessAccess.Services.Interfaces
 {
     public interface IStaffConsultantService
     {
-        Task<IEnumerable<User>> GetAllAsync();
-        Task<User?> GetByIdAsync(Guid id);
+        Task<IEnumerable<User>> GetAllAsync(Guid roleId);
+        Task<User?> GetByIdAsync(Guid id, Guid roleId);
         Task<User> CreateAsync(User dto);
-        Task<User?> UpdateAsync(Guid id, User dto);
-        Task<bool> DeleteAsync(Guid id);
+        Task<User?> UpdateAsync(Guid id, User dto, Guid roleId);
+        Task<bool> DeleteAsync(Guid id, Guid roleId);
+        Task<bool> ReviveAsync(Guid id, Guid roleId);
     }
 }

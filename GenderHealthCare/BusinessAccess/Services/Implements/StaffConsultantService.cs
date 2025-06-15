@@ -18,19 +18,24 @@ namespace BusinessAccess.Services.Implements
             _repository = repository;
         }
 
-        public async Task<bool> DeleteAsync(Guid id)
+        public async Task<bool> DeleteAsync(Guid id, Guid roleId)
         {
-            return await _repository.DeleteAsync(id);
+            return await _repository.DeleteAsync(id, roleId);
         }
 
-        public async Task<User?> GetByIdAsync(Guid id)
+        public async Task<bool> ReviveAsync(Guid id, Guid roleId)
         {
-            return await _repository.GetByIdAsync(id);
+            return await _repository.ReviveAsync(id, roleId);
         }
 
-        public async Task<User?> UpdateAsync(Guid id, User dto)
+        public async Task<User?> GetByIdAsync(Guid id, Guid roleId)
         {
-            return await _repository.UpdateAsync(id, dto);
+            return await _repository.GetByIdAsync(id, roleId);
+        }
+
+        public async Task<User?> UpdateAsync(Guid id, User dto, Guid roleId)
+        {
+            return await _repository.UpdateAsync(id, dto, roleId);
         }
     }
 }
