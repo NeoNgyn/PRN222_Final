@@ -75,7 +75,7 @@ namespace DataAccess.Repositories.Implements
                 existedUser.PhoneNumber = dto.PhoneNumber;
                 existedUser.Address = dto.Address;
                 existedUser.Birthday = dto.Birthday;
-                existedUser.Role = dto.Role;
+                existedUser.RoleId = dto.RoleId;
 
                 _context.Users.Update(existedUser);
                 await _context.SaveChangesAsync();

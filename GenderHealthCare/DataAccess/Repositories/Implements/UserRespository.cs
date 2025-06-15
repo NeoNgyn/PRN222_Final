@@ -51,7 +51,7 @@ namespace Respository.Repositories
             user.PhoneNumber = dto.PhoneNumber;
             user.Address = dto.Address;
             if (dto.Birthday != null)
-                user.Birthday = dto.Birthday.Value;
+                user.Birthday = dto.Birthday;
             user.Gender = dto.Gender;
             _context.Users.Update(user);
             await _context.SaveChangesAsync();

@@ -21,7 +21,8 @@ namespace GenderHealcareSystem.CustomActionFilters
                 opt => opt.MapFrom(src => src.DateOfBirth));
 
             CreateMap<User, StaffConsultantDto>().ReverseMap();
-            CreateMap<User, AddStaffConsultantRequest>().ReverseMap();
+            CreateMap<AddStaffConsultantRequest, User>()
+                .ForMember(dest => dest.RoleId, opt => opt.MapFrom(src => src.RoleId));
             CreateMap<User, UpdateStaffConsultantRequest>().ReverseMap();
         }
     }

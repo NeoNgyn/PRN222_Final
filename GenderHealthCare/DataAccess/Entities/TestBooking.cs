@@ -11,7 +11,7 @@ public class TestBooking
     public Guid UserId { get; set; }
 
     [Required]
-    public string MedicalHistoryId { get; set; }
+    public Guid MedicalHistoryId { get; set; }
 
     public Guid? StaffId { get; set; }
 

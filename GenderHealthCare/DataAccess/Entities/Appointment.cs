@@ -33,14 +33,14 @@ namespace DataAccess.Entities
         public DateTime? UpdatedAt { get; set; }
 
         [ForeignKey("UserId")]
-        [InverseProperty("Appointments")]
+        //[InverseProperty("Appointments")]
         public User User { get; set; }
 
         [ForeignKey("StaffScheduleId")]
         public StaffSchedule StaffSchedule { get; set; }
 
         [ForeignKey("ConsultantId")]
-        [InverseProperty("ConsultingAppointments")]
+        //[InverseProperty("ConsultingAppointments")]
         public User Consultant { get; set; }
     }
 }

@@ -248,12 +248,12 @@ namespace DataAccess.DBContext
                 entity.ToTable("StaffSchedule");
                 entity.HasKey(e => e.StaffScheduleId);
                 entity.Property(e => e.StaffScheduleId).HasMaxLength(10).IsRequired();
-                entity.Property(e => e.UserId).HasMaxLength(10).IsRequired();
+                entity.Property(e => e.ConsultantId).HasMaxLength(10).IsRequired();
                 entity.Property(e => e.Status).HasMaxLength(20).IsRequired();
 
-                entity.HasOne(e => e.User)
+                entity.HasOne(e => e.Consultant)
                       .WithMany(u => u.StaffSchedules)
-                      .HasForeignKey(e => e.UserId)
+                      .HasForeignKey(e => e.ConsultantId)
                       .OnDelete(DeleteBehavior.Restrict)
                       .HasConstraintName("FK_StaffSchedule_Consultant");
             });

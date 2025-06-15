@@ -41,7 +41,7 @@ namespace DataAccess.Entities
         [MaxLength(100)]
         public string? Address { get; set; }
 
-        public DateTime? Birthday { get; set; }
+        public string? Birthday { get; set; }
 
         public bool IsActive { get; set; }
 
@@ -57,7 +57,7 @@ namespace DataAccess.Entities
         [InverseProperty("User")]
         public ICollection<TestBooking> TestBookings { get; set; }
 
-        [InverseProperty("Staff")]
+        //[InverseProperty("Staff")]
         public ICollection<TestBooking> StaffTestBookings { get; set; }
 
         [InverseProperty("User")]
