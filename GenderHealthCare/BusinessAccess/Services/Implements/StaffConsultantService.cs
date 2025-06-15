@@ -37,5 +37,15 @@ namespace BusinessAccess.Services.Implements
         {
             return await _repository.UpdateAsync(id, dto, roleId);
         }
+
+        public Task<IEnumerable<User>> GetAllAsync(Guid roleId)
+        {
+            return _repository.GetAllAsync(roleId);
+        }
+
+        public Task<User> CreateAsync(User dto)
+        {
+            return _repository.CreateAsync(dto);
+        }
     }
 }
