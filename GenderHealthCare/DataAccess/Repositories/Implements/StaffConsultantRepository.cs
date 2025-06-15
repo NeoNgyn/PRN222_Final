@@ -86,5 +86,20 @@ namespace DataAccess.Repositories.Implements
             }
 
         }
+
+        public async Task<IEnumerable<User>> GetAllAsync(Guid roleId)
+        {
+            return await _context.Users
+                .Where(u => !u.IsDeleted && u.RoleId.Equals(roleId))
+                .ToListAsync();
+        }
+
+        public async Task<User> CreateAsync(User dto)
+        {
+            await _context.Users.AddAsync(dto);
+            await _context.SaveChangesAsync();
+            var user = await _context.Users.FirstOrDefaultAsync(s => s.UserId == dto.UserId);
+            return user;
+        }
     }
 }

@@ -21,6 +21,52 @@ namespace GenderHealcareSystem.Controllers
             _mapper = mapper;
         }
 
+        //GETALL StaffConsultant
+        [HttpGet("{roleId:guid}")]
+        public async Task<IActionResult> GetAll([FromRoute] Guid roleId)
+        {
+            //Get user from DB - domain model
+            var StaffConsultantDomain = await _service.GetAllAsync(roleId);
+
+            //Convert Domain model to Dto
+            var StaffConsultantDtos = _mapper.Map<IEnumerable<StaffConsultantDto>>(StaffConsultantDomain);
+
+            return Ok(StaffConsultantDtos);
+        }
+
+        //GET SERVICE BY ID
+        [HttpGet("{id:guid}")]
+        public async Task<IActionResult> GetById([FromRoute] Guid id, [FromRoute] Guid roleId)
+        {
+            //Get user from database - domain model
+            var userDomain = await _service.GetByIdAsync(id, roleId);
+
+            if (userDomain == null)
+                return NotFound();
+
+            //Covert domain model to dto
+            var StaffConsultantDto = _mapper.Map<StaffConsultantDto>(userDomain);
+
+            return Ok(StaffConsultantDto);
+        }
+
+        //CREATE NEW StaffConsultant
+        [HttpPost]
+        [ValidateModel]
+        public async Task<IActionResult> Create([FromBody] AddServiceRequest dto)
+        {
+            //Convert Dto to domain model
+            var userDomain = _mapper.Map<User>(dto);
+
+            //Create user in DB
+            var StaffConsultantDomain = await _service.CreateAsync(userDomain);
+
+            //Convert Domain model to Dto
+            var StaffConsultantDto = _mapper.Map<StaffConsultantDto>(StaffConsultantDomain);
+
+            return CreatedAtAction(nameof(GetById), new { id = StaffConsultantDto.UserId, roleId = StaffConsultantDto.RoleId }, StaffConsultantDto);
+        }
+
         //UPDATE EXIST StaffConsultant
         [HttpPut("{id:guid}, {roleId:guid}")]
         [ValidateModel]
