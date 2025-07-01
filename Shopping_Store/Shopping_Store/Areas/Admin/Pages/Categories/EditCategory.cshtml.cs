@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Shopping_Store_Bussiness.Services.Interfaces;
@@ -7,7 +8,7 @@ using System.Text.RegularExpressions;
 namespace Shopping_Store.Areas.Admin.Pages.Categories
 {
     [Area("Admin")]
-
+    [Authorize]
     public class EditCategoryModel(ICategoriesServies categoryService) : PageModel
     {
         [BindProperty]

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -9,7 +10,9 @@ using System.Threading.Tasks;
 
 namespace Shopping_Store.Areas.Admin.Pages.Products
 {
+
     [Area("Admin")]
+    [Authorize]
     public class CreateProductModel(IProductsServices productsService, ICategoriesServies categoryService, IBrandsService brandService, IWebHostEnvironment webHostEnvironment) : PageModel
     {
         [BindProperty]

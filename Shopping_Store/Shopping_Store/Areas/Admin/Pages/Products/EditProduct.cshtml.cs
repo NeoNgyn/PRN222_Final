@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -7,7 +8,7 @@ using Shopping_Store_Data.Model;
 namespace Shopping_Store.Areas.Admin.Pages.Products
 {
     [Area("Admin")]
-    // Nh?n ID s?n ph?m t? URL (ví d?: /Admin/Products/Edit?id=5)
+    [Authorize]
     public class EditModel(IProductsServices productsService,
                       ICategoriesServies categoryService,
                       IBrandsService brandService,

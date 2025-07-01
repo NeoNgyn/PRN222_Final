@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Shopping_Store_Bussiness.Services.Interfaces;
@@ -7,6 +8,7 @@ using System.Text.RegularExpressions;
 namespace Shopping_Store.Areas.Admin.Pages.Brands
 {
     [Area("Admin")]
+    [Authorize]
     public class EditBrandModel(IBrandsService brandService) : PageModel
     {
         [BindProperty]

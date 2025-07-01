@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Shopping_Store_Bussiness.Services.Interfaces;
@@ -6,6 +7,7 @@ using Shopping_Store_Data.Model;
 namespace Shopping_Store.Areas.Admin.Pages.Categories
 {
     [Area("Admin")]
+    [Authorize]
     public class IndexModel : PageModel
     {
         private readonly ICategoriesServies _categoryService;

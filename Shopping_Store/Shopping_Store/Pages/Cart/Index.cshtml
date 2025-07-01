@@ -4,11 +4,17 @@
     ViewData["Title"] = "Giỏ hàng của tôi";
 }
 
+@* --- Thêm các @using và @inject này ở ĐẦU file .cshtml (trước @page) --- *@
+@using Microsoft.AspNetCore.Identity
+@using Shopping_Store_Data.Model
+@inject SignInManager<Shopping_Store_Data.Model.User> SignInManager
+@inject UserManager<Shopping_Store_Data.Model.User> UserManager
+@* ---------------------------------------------------------------------- *@
 
 
 <section id="cart_items">
     <div class="container">
-        
+
         <div class="breadcrumbs">
             <ol class="breadcrumb">
                 <li><a asp-page="/Index">Home</a></li>
@@ -37,7 +43,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var item in Model.CartVM.CartItems) @* Thay đổi: Model.CartVM.CartItems *@
+                        @foreach (var item in Model.CartVM.CartItems)
                         {
                             <tr>
                                 <td class="cart_product">
@@ -58,14 +64,11 @@
                                             <button type="submit" class="btn btn-light">-</button>
                                         </form>
 
-                                        <!-- Hiển thị số lượng -->
                                         <span style="margin: 0 10px;">@item.Quantity</span>
 
-                                        <!-- Nút Tăng -->
                                         <form method="post" asp-page-handler="IncreaseQuantity" asp-route-id="@item.ProductId" style="display:inline;">
                                             <button type="submit" class="btn btn-light">+</button>
                                         </form>
-
                                     </div>
                                 </td>
                                 <td class="cart_total">
@@ -87,7 +90,6 @@
             <section id="do_action">
                 <div class="container">
                     <div class="row">
-                      
                         <div class="col-sm-6">
                             <div class="chose_area">
                                 @* ... *@
@@ -96,18 +98,27 @@
                         <div class="col-sm-6">
                             <div class="total_area">
                                 <ul>
-                                    <li>Tổng phụ <span>@Model.CartVM.TotalPrice.ToString("C")</span></li> @* Thay đổi: Model.CartVM.TotalPrice *@
+                                    <li>Tổng phụ <span>@Model.CartVM.TotalPrice.ToString("C")</span></li>
                                     <li>Thuế <span>$0</span></li>
                                     <li>Phí vận chuyển <span>Free</span></li>
-                                    <li>Tổng cộng <span>@Model.CartVM.TotalPrice.ToString("C")</span></li> @* Thay đổi: Model.CartVM.TotalPrice *@
+                                    <li>Tổng cộng <span>@Model.CartVM.TotalPrice.ToString("C")</span></li>
                                 </ul>
                                 <a class="btn btn-default update" asp-page="/Index">Tiếp tục mua sắm</a>
-                                <a class="btn btn-default check_out" asp-page="/Checkout/Index">Thanh toán</a>
-                                <form method="post" asp-page-handler="Clear" style="display:inline;">
-                                    <button type="submit" class="btn btn-danger confirm-clear-cart" onclick="return confirm('Bạn có chắc chắn muốn xóa tất cả sản phẩm khỏi giỏ hàng?');">
-                                        Xóa giỏ hàng
-                                    </button>
-                                </form>
+
+                                @* --- ĐIỀU KIỆN HÓA NÚT CHECKOUT VÀ XÓA GIỎ HÀNG BẰNG SIGNINMANAGER --- *@
+                                @if (SignInManager.IsSignedIn(User)) @* <-- Kiểm tra nếu người dùng đã đăng nhập *@
+                                {
+                                    <a class="btn btn-default check_out" asp-page="/Checkout/Index">Thanh toán</a>
+                                    <form method="post" asp-page-handler="Clear" style="display:inline;">
+                                        <button type="submit" class="btn btn-danger confirm-clear-cart" onclick="return confirm('Bạn có chắc chắn muốn xóa tất cả sản phẩm khỏi giỏ hàng?');">
+                                            Xóa giỏ hàng
+                                        </button>
+                                    </form>
+                                }
+                                else @* <-- Nếu chưa đăng nhập, có thể hiển thị thông báo hoặc nút Login *@
+                                {
+                                    <p class="text-danger mt-2">Vui lòng <a asp-page="/Accounts/Index">đăng nhập</a> để tiếp tục thanh toán.</p>
+                                }
                             </div>
                         </div>
                     </div>

@@ -108,7 +108,7 @@
 							<ul role="menu" class="sub-menu">
 								<li><a asp-page="/Account/Manage/Index" title="Quản lý tài khoản">Tài khoản của tôi</a></li> @* Link đến trang quản lý Profile của Identity *@
 								<li>
-									<form method="post" asp-page="/Account/Logout" asp-page-handler="OnPost" id="logoutForm"> @* Form cho Logout *@
+									<form method="post" asp-page="/Accounts/Logout" asp-page-handler="OnPost" id="logoutForm"> @* Form cho Logout *@
 										<button type="submit" class="btn btn-link nav-link" style="color: inherit; text-decoration: none; padding: 0;">
 											<i class="fa fa-lock"></i> Đăng xuất
 										</button>
@@ -119,7 +119,7 @@
 					}
 					else
 					{
-						<li><a asp-page="/Account/Index"><i class="fa fa-lock"></i> Đăng nhập</a></li> @* Link đến trang Login của bạn *@
+						<li><a asp-page="/Accounts/Index"><i class="fa fa-lock"></i> Đăng nhập</a></li> @* Link đến trang Login của bạn *@
 					}
 					@* --- KẾT THÚC PHẦN ĐĂNG NHẬP/ĐĂNG XUẤT --- *@
 				</ul>

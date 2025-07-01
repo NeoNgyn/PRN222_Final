@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Shopping_Store_Bussiness.Services.Interfaces;
@@ -6,7 +7,8 @@ using Shopping_Store_Data.Model;
 namespace Shopping_Store.Areas.Admin.Pages.Categories
 {
 	[Area("Admin")]
-	public class CreateCategoryModel(ICategoriesServies _categoryService) : PageModel
+    [Authorize]
+    public class CreateCategoryModel(ICategoriesServies _categoryService) : PageModel
 	{
 		
 		[BindProperty] // S? binding d? li?u t? form HTML vào ??i t??ng Category này
