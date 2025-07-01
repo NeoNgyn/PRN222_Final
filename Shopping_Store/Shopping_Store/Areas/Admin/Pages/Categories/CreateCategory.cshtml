@@ -1,0 +1,45 @@
+﻿@* File: Areas/Admin/Pages/Categories/Create.cshtml *@
+@page
+@model Shopping_Store.Areas.Admin.Pages.Categories.CreateCategoryModel
+@{
+    ViewData["Title"] = "Thêm danh mục mới";
+}
+
+<h1>Thêm danh mục mới</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div> @* Hiển thị tất cả lỗi validation *@
+
+            <div class="form-group">
+                <label asp-for="Category.Name" class="control-label"></label>
+                <input asp-for="Category.Name" class="form-control" />
+                <span asp-validation-for="Category.Name" class="text-danger"></span> @* Hiển thị lỗi cho trường Name *@
+            </div>
+            <div class="form-group">
+                <label asp-for="Category.Description" class="control-label"></label>
+                <textarea asp-for="Category.Description" class="form-control"></textarea>
+                <span asp-validation-for="Category.Description" class="text-danger"></span> @* Hiển thị lỗi cho trường Description *@
+            </div>
+            <div class="form-group">
+                <label asp-for="Category.status" class="control-label">Trạng thái</label> @* Tên thuộc tính là 'status' chữ thường *@
+                <input asp-for="Category.status" class="form-control" />
+                <span asp-validation-for="Category.status" class="text-danger"></span> @* Hiển thị lỗi cho trường status *@
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Thêm danh mục" class="btn btn-primary" />
+                <a asp-page="Index" class="btn btn-secondary">Quay lại danh sách</a> @* Quay lại trang Index của Categories *@
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        // Kích hoạt client-side validation nếu bạn muốn (cần _ValidationScriptsPartial)
+         await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    @* Nếu muốn dùng CKEditor cho Description, hãy thêm ở đây *@
+}

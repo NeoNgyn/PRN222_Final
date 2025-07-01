@@ -1,0 +1,53 @@
+﻿@* File: Areas/Admin/Pages/Brands/Index.cshtml *@
+@page
+@model Shopping_Store.Areas.Admin.Pages.Brands.IndexModel
+@{
+    ViewData["Title"] = "Quản lý thương hiệu";
+}
+
+<h1>Quản lý thương hiệu</h1>
+
+<p>
+    <a asp-page="CreateBrand">Thêm thương hiệu mới</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tên thương hiệu</th>
+            <th>Mô tả</th>
+            <th>Slug</th>
+            <th>Trạng thái</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Brands != null && Model.Brands.Any())
+        {
+            @foreach (var item in Model.Brands)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Description</td>
+                    <td>@item.Slug</td>
+                    <td>@item.Status</td>
+                    <td>
+                        <a class="btn btn-warning btn-sm" asp-page="EditBrand" asp-route-id="@item.Id">Sửa</a> |
+                        <form method="post" asp-page-handler="Delete" asp-route-id="@item.Id" style="display:inline;"
+                              onsubmit="return confirm('Bạn có chắc chắn muốn xóa thương hiệu \'@item.Name\' này không?');">
+                            <button type="submit" class="btn btn-danger btn-sm">Xóa</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="6">Không có thương hiệu nào để hiển thị.</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,226 @@
+﻿@page
+@model Shopping_Store.Pages.Product.ProductDetailsModel
+
+@{
+    ViewData["Title"] = Model.Product?.Name ?? "Chi tiết sản phẩm"; // Đặt tiêu đề trang động
+}
+
+<div class="row">
+    <div class="col-sm-3">
+        @Html.Partial("_SidebarPartial")
+    </div>
+
+    <div class="col-sm-9 padding-right">
+        @if (Model.Product != null)
+        {
+            <div class="product-details">
+                <div class="col-sm-5">
+                    <div class="view-product">
+                        <img src="~/media/products/@Model.Product.ImageUrl" alt="@Model.Product.Name" />
+                        <h3>ZOOM</h3> @* Có thể thay thế bằng Model.Product.Name hoặc bỏ đi nếu không cần *@
+                    </div>
+                    @* Nếu bạn có nhiều hình ảnh cho sản phẩm, bạn có thể lặp qua một danh sách hình ảnh trong Product Model *@
+                    <div id="similar-product" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="item">
+                                <a href=""><img src="~/media/products/@Model.Product.ImageUrl" alt=""></a>
+                                <a href=""><img src="~/media/products/@Model.Product.ImageUrl" alt=""></a>
+                                <a href=""><img src="~/media/productss/@Model.Product.ImageUrl" alt=""></a>
+                            </div>
+                            @* Thêm các item khác nếu có nhiều nhóm ảnh tương tự *@
+                        </div>
+                        <a class="left item-control" href="#similar-product" data-slide="prev">
+                            <i class="fa fa-angle-left"></i>
+                        </a>
+                        <a class="right item-control" href="#similar-product" data-slide="next">
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-sm-7">
+                    <div class="product-information">
+                        
+                        <h2>@Model.Product.Name</h2>
+                        
+                        <span>
+                            <span>US @Model.Product.Price</span> @* Hiển thị giá sản phẩm *@
+                            <label>Quantity: 1</label>
+                            <input type="text" value="1" /> @* Giá trị mặc định là 1 *@
+                            <button type="button" class="btn btn-fefault cart">
+                                <i class="fa fa-shopping-cart"></i>
+                                Add to cart
+                            </button>
+                        </span>
+                        
+                        <p><b>Condition:</b> New</p> @* Nếu có thuộc tính Condition trong Product, sử dụng nó *@
+                        <p><b>Brand:</b> @Model.Product.Brand?.Name</p> @* Hiển thị tên Brand. Sử dụng ?. để an toàn *@
+                        <p><b>Category:</b> @Model.Product.Category?.Name</p> @* Hiển thị tên Category. Sử dụng ?. để an toàn *@
+                        <a href=""><img src="" class="share img-responsive" alt="" /></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-tab shop-details-tab">
+                <div class="col-sm-12">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#details" data-toggle="tab">Details</a></li> @* Đặt tab Details là active mặc định *@
+                        <li><a href="#companyprofile" data-toggle="tab">Company Profile</a></li>
+                        <li><a href="#tag" data-toggle="tab">Tag</a></li>
+                        <li><a href="#reviews" data-toggle="tab">Reviews (5)</a></li>
+                    </ul>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane fade active in" id="details">
+                        @* Thêm active in để tab này hiển thị mặc định *@
+                        <div class="col-sm-12">
+                            <p>@Model.Product.Description</p> @* Sử dụng Description của sản phẩm *@
+                        </div>
+                        @* Các phần gallery1, gallery2, ... thường là ảnh khác của sản phẩm
+                    Bạn có thể lặp qua một danh sách ảnh khác trong Product Model nếu có *@
+                        @* Vẫn giữ lại cấu trúc nếu bạn muốn hiển thị các sản phẩm liên quan trong tab này *@
+                        <div class="col-sm-3">...</div>
+                        <div class="col-sm-3">...</div>
+                        <div class="col-sm-3">...</div>
+                        <div class="col-sm-3">...</div>
+                    </div>
+
+                    <div class="tab-pane fade" id="companyprofile">
+                        @* Có thể hiển thị thông tin chi tiết về Brand hoặc nhà sản xuất *@
+                        <div class="col-sm-12">
+                            <p>Thông tin về công ty @Model.Product.Brand?.Name: Lorem ipsum dolor sit amet...</p>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="tag">
+                        @* Hiển thị các tag liên quan đến sản phẩm nếu có thuộc tính tags trong Product Model *@
+                        <div class="col-sm-12">
+                            <p>Tags: #@Model.Product.Category?.Name #@Model.Product.Brand?.Name #@Model.Product.Name.Replace(" ", "")</p>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="reviews">
+                        @* Phần đánh giá sản phẩm *@
+                        <div class="col-sm-12">
+                            <ul>
+                                <li><a href=""><i class="fa fa-user"></i>EUGEN</a></li>
+                                <li><a href=""><i class="fa fa-clock-o"></i>12:41 PM</a></li>
+                                <li><a href=""><i class="fa fa-calendar-o"></i>31 DEC 2014</a></li>
+                            </ul>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                            <p><b>Write Your Review</b></p>
+
+                            <form action="#">
+                                <span>
+                                    <input type="text" placeholder="Your Name" />
+                                    <input type="email" placeholder="Email Address" />
+                                </span>
+                                <textarea name=""></textarea>
+                                <b>Rating: </b> <img src="images/product-details/rating.png" alt="" />
+                                <button type="button" class="btn btn-default pull-right">
+                                    Submit
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recommended_items">
+                <h2 class="title text-center">recommended items</h2>
+                @* Bạn có thể tạo một View Component riêng cho Recommended Items nếu chúng có logic phức tạp *@
+                <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="col-sm-4">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <img src="images/home/recommend1.jpg" alt="" />
+                                            <h2>$56</h2>
+                                            <p>Easy Polo Black Edition</p>
+                                            <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <img src="images/home/recommend2.jpg" alt="" />
+                                            <h2>$56</h2>
+                                            <p>Easy Polo Black Edition</p>
+                                            <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <img src="images/home/recommend3.jpg" alt="" />
+                                            <h2>$56</h2>
+                                            <p>Easy Polo Black Edition</p>
+                                            <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="col-sm-4">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <img src="images/home/recommend1.jpg" alt="" />
+                                            <h2>$56</h2>
+                                            <p>Easy Polo Black Edition</p>
+                                            <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <img src="images/home/recommend2.jpg" alt="" />
+                                            <h2>$56</h2>
+                                            <p>Easy Polo Black Edition</p>
+                                            <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="product-image-wrapper">
+                                    <div class="single-products">
+                                        <div class="productinfo text-center">
+                                            <img src="images/home/recommend3.jpg" alt="" />
+                                            <h2>$56</h2>
+                                            <p>Easy Polo Black Edition</p>
+                                            <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-danger text-center">
+                Xin lỗi, không tìm thấy sản phẩm.
+            </div>
+        }
+    </div>
+</div>
