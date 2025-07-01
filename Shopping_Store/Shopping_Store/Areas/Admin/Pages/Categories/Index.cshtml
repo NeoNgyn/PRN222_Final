@@ -1,0 +1,60 @@
+﻿@page
+@model Shopping_Store.Areas.Admin.Pages.Categories.IndexModel
+
+@{
+    ViewData["Title"] = "Quản lý danh mục"; // <-- Thay đổi tiêu đề trang
+}
+
+
+<h1>Quản lý danh mục</h1> @* <-- Thay đổi tiêu đề chính *@
+
+<p>
+    <a asp-page="CreateCategory">Thêm danh mục mới</a> @* <-- Liên kết đến trang Create của Categories *@
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tên danh mục</th> @* <-- Thay đổi tiêu đề cột *@
+            <th>Mô tả</th> @* <-- Thêm cột mô tả nếu có *@
+            <th>Slug</th> @* <-- Thêm cột Slug *@
+            <th>Trạng thái</th> @* <-- Thêm cột trạng thái *@
+            <th>Tools</th>
+        </tr>
+    </thead>
+    <tbody>
+        @* <-- Thay đổi Model.Products thành Model.Categories để lặp qua danh mục *@
+        @if (Model.Categories != null && Model.Categories.Any())
+        {
+            @foreach (var item in Model.Categories) @* <-- Lặp qua từng danh mục *@
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Description</td> @* <-- Hiển thị mô tả *@
+                    <td>@item.Slug</td> @* <-- Hiển thị Slug *@
+                    <td>@item.status</td> @* <-- Hiển thị trạng thái *@
+                    @* Loại bỏ cột Ảnh và hiển thị ảnh *@
+                    @* <td>
+                        <img src="~/images/media/products/@item.ImageUrl" alt="@item.Name" style="width: 50px; height: 50px; object-fit: cover;" />
+                    </td> *@
+                    <td>
+                        <a class="btn btn-warning btn-sm" asp-page="EditCategory" asp-route-id="@item.Id">Sửa</a> | @* <-- Link đến trang Edit của Categories *@
+                        @* <a asp-page="Details" asp-route-id="@item.Id">Chi tiết</a> | *@ @* Categories thường không có trang Details riêng nếu thông tin ít *@
+                        <form method="post" asp-page-handler="Delete" asp-route-id="@item.Id" style="display:inline;"
+                              onsubmit="return confirm('Bạn có chắc chắn muốn xóa danh mục \'@item.Name\' này không?');">
+                            <button type="submit" class="btn btn-danger btn-sm">Xóa</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="6">Không có danh mục nào để hiển thị.</td> @* <-- Thay đổi colspan nếu số cột thay đổi *@
+            </tr>
+        }
+    </tbody>
+</table>

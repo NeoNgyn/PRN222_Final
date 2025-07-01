@@ -1,0 +1,61 @@
+﻿@page
+@model Shopping_Store.Areas.Admin.Pages.Products.IndexModel
+
+@{
+    ViewData["Title"] = "Admin Dashboard"; // Đặt tiêu đề cho trang
+}
+
+
+<h1>Quản lý sản phẩm</h1>
+
+<p>
+    <a asp-page="CreateProduct">Thêm sản phẩm mới</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tên sản phẩm</th>
+            <th>Giá</th>
+            <th>Danh mục</th> @* <-- Cột cho danh mục *@
+            <th>Thương hiệu</th>
+            <th>Ảnh</th>
+            <th>Tools</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Products != null && Model.Products.Any())
+        {
+            @foreach (var item in Model.Products)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Price.ToString("C")</td>
+                    <td>@item.Category?.Name</td> @* <-- HIỂN THỊ TÊN DANH MỤC (dùng ?. an toàn) *@
+                    <td>@item.Brand?.Name</td> @* HIỂN THỊ TÊN THƯƠNG HIỆU (dùng ?. an toàn) *@
+                    <td>
+                        <img src="~/media/products/@item.ImageUrl" alt="@item.Name" style="width: 50px; height: 50px; object-fit: cover;" />
+                    </td>
+                    <td>
+                        <a class="btn btn-warning btn-sm" asp-page="EditProduct" asp-route-id="@item.Id">Sửa</a>
+                        <a asp-page="Details" asp-route-id="@item.Id">Chi tiết</a>  |
+                        <form method="post" asp-page-handler="Delete" asp-route-id="@item.Id" style="display:inline;">
+                            <button type="submit" class="btn btn-danger btn-sm"
+                                    onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm \'@item.Name\' này không?');">
+                                Xóa
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="7">Không có sản phẩm nào để hiển thị.</td>
+            </tr>
+        }
+    </tbody>
+</table>

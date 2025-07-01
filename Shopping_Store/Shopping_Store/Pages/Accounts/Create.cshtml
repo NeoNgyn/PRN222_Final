@@ -1,0 +1,56 @@
+﻿@page
+@model Shopping_Store.Pages.Accounts.CreateModel
+@{
+    ViewData["Title"] = "Đăng ký tài khoản mới";
+}
+
+<section id="form"><div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="signup-form">
+                    <h2>Đăng ký tài khoản mới!</h2>
+                    <form method="post"> @* Form method="post" *@
+                        <div asp-validation-summary="All" class="text-danger"></div> @* Hiển thị tất cả lỗi (bao gồm lỗi Identity) *@
+
+                        <div class="form-group">
+                            <label asp-for="AppUser.UserName"></label> @* Dùng AppUser.UserName *@
+                            <input asp-for="AppUser.UserName" class="form-control" placeholder="Tên người dùng" />
+                            <span asp-validation-for="AppUser.UserName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="AppUser.Email"></label> @* Dùng AppUser.Email *@
+                            <input asp-for="AppUser.Email" class="form-control" placeholder="Địa chỉ Email" />
+                            <span asp-validation-for="AppUser.Email" class="text-danger"></span>
+                        </div>
+
+                        @* Thêm trường Occupation nếu bạn muốn người dùng nhập *@
+                        <div class="form-group">
+                            <label asp-for="AppUser.Occupation"></label> @* Dùng AppUser.Occupation *@
+                            <input asp-for="AppUser.Occupation" class="form-control" placeholder="Nghề nghiệp" />
+                            <span asp-validation-for="AppUser.Occupation" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Password"></label> @* Dùng thuộc tính Password riêng *@
+                            <input asp-for="Password" class="form-control" placeholder="Mật khẩu" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="ConfirmPassword"></label> @* Dùng thuộc tính ConfirmPassword riêng *@
+                            <input asp-for="ConfirmPassword" class="form-control" placeholder="Xác nhận mật khẩu" />
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-default">Đăng ký</button>
+                    </form>
+                </div></div>
+        </div>
+    </div>
+</section>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial"); // Kích hoạt client-side validation
+    }
+}

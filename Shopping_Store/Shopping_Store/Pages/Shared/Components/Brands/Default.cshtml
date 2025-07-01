@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Shopping_Store_Data.Model.Brand>
+
+@foreach (var item in Model)
+{
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a asp-page="/Brands/Index" asp-route-slug="@item.Slug">@item.Name</a> @* <-- LIÊN KẾT NÀY SẼ TẠO URL THÂN THIỆN *@
+			</h4>
+		</div>
+	</div>
+}
