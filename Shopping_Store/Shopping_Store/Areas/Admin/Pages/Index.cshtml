@@ -1,0 +1,37 @@
+﻿@page
+@model Shopping_Store.Areas.Admin.Pages.IndexModel
+@{
+}
+<h1>Admin Dashboard</h1>
+
+<p>Chào mừng bạn đến với khu vực quản trị.</p>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">Quản lý sản phẩm</div>
+            <div class="card-body">
+                <p>Xem, thêm, sửa, xóa các sản phẩm trong cửa hàng.</p>
+                <a asp-area="Admin" asp-page="/Products/Index" class="btn btn-primary">Đi tới Sản phẩm</a> @* <-- Liên kết đến trang quản lý sản phẩm *@
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">Quản lý danh mục</div>
+            <div class="card-body">
+                <p>Xem, thêm, sửa, xóa các danh mục sản phẩm.</p>
+                <a asp-area="Admin" asp-page="/Categories/Index" class="btn btn-primary">Đi tới Danh mục</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">Quản lý thương hiệu</div>
+            <div class="card-body">
+                <p>Xem, thêm, sửa, xóa các thương hiệu sản phẩm.</p>
+                <a asp-area="Admin" asp-page="/Brands/Index" class="btn btn-primary">Đi tới Thương hiệu</a>
+            </div>
+        </div>
+    </div>
+</div>

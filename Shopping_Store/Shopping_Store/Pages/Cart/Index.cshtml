@@ -1,0 +1,118 @@
+﻿@page
+@model Shopping_Store.Pages.Cart.IndexModel
+@{
+    ViewData["Title"] = "Giỏ hàng của tôi";
+}
+
+
+
+<section id="cart_items">
+    <div class="container">
+        
+        <div class="breadcrumbs">
+            <ol class="breadcrumb">
+                <li><a asp-page="/Index">Home</a></li>
+                <li class="active">Shopping Cart</li>
+            </ol>
+        </div>
+
+        @* Kiểm tra nếu giỏ hàng trống *@
+        @if (Model.CartVM.CartItems == null || !Model.CartVM.CartItems.Any())
+        {
+            <div class="alert alert-info text-center">Giỏ hàng của bạn đang trống.</div>
+            <p class="text-center"><a asp-page="/Index" class="btn btn-default update">Tiếp tục mua sắm</a></p>
+        }
+        else
+        {
+            <div class="table-responsive cart_info">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr class="cart_menu">
+                            <td class="image">Sản phẩm</td>
+                            <td class="description"></td>
+                            <td class="price">Giá</td>
+                            <td class="quantity">Số lượng</td>
+                            <td class="total">Tổng cộng</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.CartVM.CartItems) @* Thay đổi: Model.CartVM.CartItems *@
+                        {
+                            <tr>
+                                <td class="cart_product">
+                                    <a asp-page="/Product/Details" asp-route-id="@item.ProductId">
+                                        <img src="~/media/products/@item.ImageUrl" alt="@item.ProductName" width="110">
+                                    </a>
+                                </td>
+                                <td class="cart_description">
+                                    <h4><a asp-page="/Product/Details" asp-route-id="@item.ProductId">@item.ProductName</a></h4>
+                                    <p>Web ID: @item.ProductId</p>
+                                </td>
+                                <td class="cart_price">
+                                    <p>@item.Price.ToString("C")</p>
+                                </td>
+                                <td class="cart_quantity">
+                                    <div class="cart_quantity_button">
+                                        <form method="post" asp-page-handler="DecreaseQuantity" asp-route-id="@item.ProductId" style="display:inline;">
+                                            <button type="submit" class="btn btn-light">-</button>
+                                        </form>
+
+                                        <!-- Hiển thị số lượng -->
+                                        <span style="margin: 0 10px;">@item.Quantity</span>
+
+                                        <!-- Nút Tăng -->
+                                        <form method="post" asp-page-handler="IncreaseQuantity" asp-route-id="@item.ProductId" style="display:inline;">
+                                            <button type="submit" class="btn btn-light">+</button>
+                                        </form>
+
+                                    </div>
+                                </td>
+                                <td class="cart_total">
+                                    <p class="cart_total_price">@((item.Quantity * item.Price).ToString("C"))</p>
+                                </td>
+                                <td class="cart_delete">
+                                    <form method="post" asp-page-handler="RemoveFromCart" asp-route-id="@item.ProductId" style="display:inline;">
+                                        <button type="submit" class="cart_quantity_delete" style="border:none; background:none; padding:0; cursor:pointer;">
+                                            <i class="fa fa-times"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <section id="do_action">
+                <div class="container">
+                    <div class="row">
+                      
+                        <div class="col-sm-6">
+                            <div class="chose_area">
+                                @* ... *@
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="total_area">
+                                <ul>
+                                    <li>Tổng phụ <span>@Model.CartVM.TotalPrice.ToString("C")</span></li> @* Thay đổi: Model.CartVM.TotalPrice *@
+                                    <li>Thuế <span>$0</span></li>
+                                    <li>Phí vận chuyển <span>Free</span></li>
+                                    <li>Tổng cộng <span>@Model.CartVM.TotalPrice.ToString("C")</span></li> @* Thay đổi: Model.CartVM.TotalPrice *@
+                                </ul>
+                                <a class="btn btn-default update" asp-page="/Index">Tiếp tục mua sắm</a>
+                                <a class="btn btn-default check_out" asp-page="/Checkout/Index">Thanh toán</a>
+                                <form method="post" asp-page-handler="Clear" style="display:inline;">
+                                    <button type="submit" class="btn btn-danger confirm-clear-cart" onclick="return confirm('Bạn có chắc chắn muốn xóa tất cả sản phẩm khỏi giỏ hàng?');">
+                                        Xóa giỏ hàng
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        }
+    </div>
+</section>
