@@ -12,6 +12,7 @@ using System.Security.Claims;
 
 namespace Shopping_Tutorial.Controllers 
 {
+    //Add checkout by Thang
     public class CheckoutController : Controller
     {
         private readonly DataContext _context;

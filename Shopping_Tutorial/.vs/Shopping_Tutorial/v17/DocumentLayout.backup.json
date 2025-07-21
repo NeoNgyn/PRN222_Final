@@ -1,29 +1,33 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\Lap_Trinh_ASP.NET\\Shopping_Tutorial\\",
+  "WorkspaceRootPath": "E:\\FPTU_SU25_ki7\\PRN222\\PRN222_Final\\Shopping_Tutorial\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A732E0A6-952D-4A78-8FFC-49459C5B0924}|Shopping_Tutorial\\Shopping_Tutorial.csproj|e:\\lap_trinh_asp.net\\shopping_tutorial\\shopping_tutorial\\areas\\admin\\repository\\emailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A732E0A6-952D-4A78-8FFC-49459C5B0924}|Shopping_Tutorial\\Shopping_Tutorial.csproj|e:\\fptu_su25_ki7\\prn222\\prn222_final\\shopping_tutorial\\shopping_tutorial\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A732E0A6-952D-4A78-8FFC-49459C5B0924}|Shopping_Tutorial\\Shopping_Tutorial.csproj|solutionrelative:shopping_tutorial\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A732E0A6-952D-4A78-8FFC-49459C5B0924}|Shopping_Tutorial\\Shopping_Tutorial.csproj|e:\\fptu_su25_ki7\\prn222\\prn222_final\\shopping_tutorial\\shopping_tutorial\\areas\\admin\\repository\\emailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A732E0A6-952D-4A78-8FFC-49459C5B0924}|Shopping_Tutorial\\Shopping_Tutorial.csproj|solutionrelative:shopping_tutorial\\areas\\admin\\repository\\emailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A732E0A6-952D-4A78-8FFC-49459C5B0924}|Shopping_Tutorial\\Shopping_Tutorial.csproj|e:\\lap_trinh_asp.net\\shopping_tutorial\\shopping_tutorial\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A732E0A6-952D-4A78-8FFC-49459C5B0924}|Shopping_Tutorial\\Shopping_Tutorial.csproj|e:\\fptu_su25_ki7\\prn222\\prn222_final\\shopping_tutorial\\shopping_tutorial\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A732E0A6-952D-4A78-8FFC-49459C5B0924}|Shopping_Tutorial\\Shopping_Tutorial.csproj|solutionrelative:shopping_tutorial\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A732E0A6-952D-4A78-8FFC-49459C5B0924}|Shopping_Tutorial\\Shopping_Tutorial.csproj|e:\\lap_trinh_asp.net\\shopping_tutorial\\shopping_tutorial\\areas\\admin\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A732E0A6-952D-4A78-8FFC-49459C5B0924}|Shopping_Tutorial\\Shopping_Tutorial.csproj|e:\\fptu_su25_ki7\\prn222\\prn222_final\\shopping_tutorial\\shopping_tutorial\\areas\\admin\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A732E0A6-952D-4A78-8FFC-49459C5B0924}|Shopping_Tutorial\\Shopping_Tutorial.csproj|solutionrelative:shopping_tutorial\\areas\\admin\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A732E0A6-952D-4A78-8FFC-49459C5B0924}|Shopping_Tutorial\\Shopping_Tutorial.csproj|e:\\lap_trinh_asp.net\\shopping_tutorial\\shopping_tutorial\\repository\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A732E0A6-952D-4A78-8FFC-49459C5B0924}|Shopping_Tutorial\\Shopping_Tutorial.csproj|e:\\fptu_su25_ki7\\prn222\\prn222_final\\shopping_tutorial\\shopping_tutorial\\repository\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A732E0A6-952D-4A78-8FFC-49459C5B0924}|Shopping_Tutorial\\Shopping_Tutorial.csproj|solutionrelative:shopping_tutorial\\repository\\seeddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A732E0A6-952D-4A78-8FFC-49459C5B0924}|Shopping_Tutorial\\Shopping_Tutorial.csproj|e:\\lap_trinh_asp.net\\shopping_tutorial\\shopping_tutorial\\areas\\admin\\views\\order\\paymentinfovnpay.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{A732E0A6-952D-4A78-8FFC-49459C5B0924}|Shopping_Tutorial\\Shopping_Tutorial.csproj|e:\\fptu_su25_ki7\\prn222\\prn222_final\\shopping_tutorial\\shopping_tutorial\\areas\\admin\\views\\order\\paymentinfovnpay.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A732E0A6-952D-4A78-8FFC-49459C5B0924}|Shopping_Tutorial\\Shopping_Tutorial.csproj|solutionrelative:shopping_tutorial\\areas\\admin\\views\\order\\paymentinfovnpay.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A732E0A6-952D-4A78-8FFC-49459C5B0924}|Shopping_Tutorial\\Shopping_Tutorial.csproj|e:\\lap_trinh_asp.net\\shopping_tutorial\\shopping_tutorial\\areas\\admin\\views\\order\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{A732E0A6-952D-4A78-8FFC-49459C5B0924}|Shopping_Tutorial\\Shopping_Tutorial.csproj|e:\\fptu_su25_ki7\\prn222\\prn222_final\\shopping_tutorial\\shopping_tutorial\\areas\\admin\\views\\order\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A732E0A6-952D-4A78-8FFC-49459C5B0924}|Shopping_Tutorial\\Shopping_Tutorial.csproj|solutionrelative:shopping_tutorial\\areas\\admin\\views\\order\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
@@ -52,32 +56,45 @@
         },
         {
           "DockedHeight": 205,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "E:\\FPTU_SU25_ki7\\PRN222\\PRN222_Final\\Shopping_Tutorial\\Shopping_Tutorial\\appsettings.json",
+              "RelativeDocumentMoniker": "Shopping_Tutorial\\appsettings.json",
+              "ToolTip": "E:\\FPTU_SU25_ki7\\PRN222\\PRN222_Final\\Shopping_Tutorial\\Shopping_Tutorial\\appsettings.json",
+              "RelativeToolTip": "Shopping_Tutorial\\appsettings.json",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAswCQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-21T07:04:21.612Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "EmailSender.cs",
-              "DocumentMoniker": "E:\\Lap_Trinh_ASP.NET\\Shopping_Tutorial\\Shopping_Tutorial\\Areas\\Admin\\Repository\\EmailSender.cs",
+              "DocumentMoniker": "E:\\FPTU_SU25_ki7\\PRN222\\PRN222_Final\\Shopping_Tutorial\\Shopping_Tutorial\\Areas\\Admin\\Repository\\EmailSender.cs",
               "RelativeDocumentMoniker": "Shopping_Tutorial\\Areas\\Admin\\Repository\\EmailSender.cs",
-              "ToolTip": "E:\\Lap_Trinh_ASP.NET\\Shopping_Tutorial\\Shopping_Tutorial\\Areas\\Admin\\Repository\\EmailSender.cs",
+              "ToolTip": "E:\\FPTU_SU25_ki7\\PRN222\\PRN222_Final\\Shopping_Tutorial\\Shopping_Tutorial\\Areas\\Admin\\Repository\\EmailSender.cs",
               "RelativeToolTip": "Shopping_Tutorial\\Areas\\Admin\\Repository\\EmailSender.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwBIAAABFAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAxwBIAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-14T06:50:57.469Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
-              "DocumentMoniker": "E:\\Lap_Trinh_ASP.NET\\Shopping_Tutorial\\Shopping_Tutorial\\Program.cs",
+              "DocumentMoniker": "E:\\FPTU_SU25_ki7\\PRN222\\PRN222_Final\\Shopping_Tutorial\\Shopping_Tutorial\\Program.cs",
               "RelativeDocumentMoniker": "Shopping_Tutorial\\Program.cs",
-              "ToolTip": "E:\\Lap_Trinh_ASP.NET\\Shopping_Tutorial\\Shopping_Tutorial\\Program.cs",
+              "ToolTip": "E:\\FPTU_SU25_ki7\\PRN222\\PRN222_Final\\Shopping_Tutorial\\Shopping_Tutorial\\Program.cs",
               "RelativeToolTip": "Shopping_Tutorial\\Program.cs",
               "ViewState": "AgIAABEAAAAAAAAAAAAAwB4AAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -85,11 +102,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "UserController.cs",
-              "DocumentMoniker": "E:\\Lap_Trinh_ASP.NET\\Shopping_Tutorial\\Shopping_Tutorial\\Areas\\Admin\\Controllers\\UserController.cs",
+              "DocumentMoniker": "E:\\FPTU_SU25_ki7\\PRN222\\PRN222_Final\\Shopping_Tutorial\\Shopping_Tutorial\\Areas\\Admin\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "Shopping_Tutorial\\Areas\\Admin\\Controllers\\UserController.cs",
-              "ToolTip": "E:\\Lap_Trinh_ASP.NET\\Shopping_Tutorial\\Shopping_Tutorial\\Areas\\Admin\\Controllers\\UserController.cs",
+              "ToolTip": "E:\\FPTU_SU25_ki7\\PRN222\\PRN222_Final\\Shopping_Tutorial\\Shopping_Tutorial\\Areas\\Admin\\Controllers\\UserController.cs",
               "RelativeToolTip": "Shopping_Tutorial\\Areas\\Admin\\Controllers\\UserController.cs",
               "ViewState": "AgIAACsAAAAAAAAAAAAmwDUAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -97,11 +114,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "PaymentInfoVnpay.cshtml",
-              "DocumentMoniker": "E:\\Lap_Trinh_ASP.NET\\Shopping_Tutorial\\Shopping_Tutorial\\Areas\\Admin\\Views\\Order\\PaymentInfoVnpay.cshtml",
+              "DocumentMoniker": "E:\\FPTU_SU25_ki7\\PRN222\\PRN222_Final\\Shopping_Tutorial\\Shopping_Tutorial\\Areas\\Admin\\Views\\Order\\PaymentInfoVnpay.cshtml",
               "RelativeDocumentMoniker": "Shopping_Tutorial\\Areas\\Admin\\Views\\Order\\PaymentInfoVnpay.cshtml",
-              "ToolTip": "E:\\Lap_Trinh_ASP.NET\\Shopping_Tutorial\\Shopping_Tutorial\\Areas\\Admin\\Views\\Order\\PaymentInfoVnpay.cshtml",
+              "ToolTip": "E:\\FPTU_SU25_ki7\\PRN222\\PRN222_Final\\Shopping_Tutorial\\Shopping_Tutorial\\Areas\\Admin\\Views\\Order\\PaymentInfoVnpay.cshtml",
               "RelativeToolTip": "Shopping_Tutorial\\Areas\\Admin\\Views\\Order\\PaymentInfoVnpay.cshtml",
               "ViewState": "AgIAAAgAAAAAAAAAAAAuwBsAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -109,11 +126,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "E:\\Lap_Trinh_ASP.NET\\Shopping_Tutorial\\Shopping_Tutorial\\Areas\\Admin\\Views\\Order\\Index.cshtml",
+              "DocumentMoniker": "E:\\FPTU_SU25_ki7\\PRN222\\PRN222_Final\\Shopping_Tutorial\\Shopping_Tutorial\\Areas\\Admin\\Views\\Order\\Index.cshtml",
               "RelativeDocumentMoniker": "Shopping_Tutorial\\Areas\\Admin\\Views\\Order\\Index.cshtml",
-              "ToolTip": "E:\\Lap_Trinh_ASP.NET\\Shopping_Tutorial\\Shopping_Tutorial\\Areas\\Admin\\Views\\Order\\Index.cshtml",
+              "ToolTip": "E:\\FPTU_SU25_ki7\\PRN222\\PRN222_Final\\Shopping_Tutorial\\Shopping_Tutorial\\Areas\\Admin\\Views\\Order\\Index.cshtml",
               "RelativeToolTip": "Shopping_Tutorial\\Areas\\Admin\\Views\\Order\\Index.cshtml",
               "ViewState": "AgIAAB4AAAAAAAAAAAAAACQAAACVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
@@ -121,11 +138,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "SeedData.cs",
-              "DocumentMoniker": "E:\\Lap_Trinh_ASP.NET\\Shopping_Tutorial\\Shopping_Tutorial\\Repository\\SeedData.cs",
+              "DocumentMoniker": "E:\\FPTU_SU25_ki7\\PRN222\\PRN222_Final\\Shopping_Tutorial\\Shopping_Tutorial\\Repository\\SeedData.cs",
               "RelativeDocumentMoniker": "Shopping_Tutorial\\Repository\\SeedData.cs",
-              "ToolTip": "E:\\Lap_Trinh_ASP.NET\\Shopping_Tutorial\\Shopping_Tutorial\\Repository\\SeedData.cs",
+              "ToolTip": "E:\\FPTU_SU25_ki7\\PRN222\\PRN222_Final\\Shopping_Tutorial\\Shopping_Tutorial\\Repository\\SeedData.cs",
               "RelativeToolTip": "Shopping_Tutorial\\Repository\\SeedData.cs",
               "ViewState": "AgIAAFIAAAAAAAAAAAAwwGEAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

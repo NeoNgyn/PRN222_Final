@@ -8,6 +8,7 @@ using System.Data;
 
 namespace Shopping_Tutorial.Areas.Admin.Controllers
 {
+    //Add role by Thang
     [Area("Admin")]
     [Authorize(Roles = "Admin")]
     public class RoleController : Controller

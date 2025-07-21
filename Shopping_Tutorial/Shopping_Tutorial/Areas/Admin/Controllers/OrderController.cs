@@ -7,6 +7,7 @@ using Shopping_Tutorial.Repository;
 
 namespace Shopping_Tutorial.Areas.Admin.Controllers
 {
+    //Add orderdetail by Thang
     [Area("Admin")]
     [Route("Admin/Order")]
     [Authorize]

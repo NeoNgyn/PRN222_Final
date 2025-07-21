@@ -9,6 +9,7 @@ using System.Security.Claims;
 
 namespace Shopping_Tutorial.Areas.Admin.Controllers
 {
+    //Add user by Thang
     [Area("Admin")]
     [Route("Admin/User")]
     [Authorize(Roles = "Admin")]
